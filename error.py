@@ -28,21 +28,21 @@ def Info():
     # print(updateTime)
     # print('----------')
 
-def Uptown():
+def Uptown(x):
     uptowntext = ""
     manhattan = jsonDict["direction1"]["times"]
     print("manhattan ", manhattan)
-    if manhattan[0]["minutes"] > 0:
+    if manhattan[0]["minutes"] > x:
         uptowntext += str(manhattan[0]["route"])
         uptowntext += "  "
         uptowntext += str(manhattan[0]["minutes"])
         uptowntext += "min"
-    elif manhattan[1]["minutes"] > 0:
+    elif manhattan[1]["minutes"] > x:
         uptowntext += str(manhattan[1]["route"])
         uptowntext += "  "
         uptowntext += str(manhattan[1]["minutes"])
         uptowntext += "min"
-    elif manhattan[2]["minutes"] > 0:
+    elif manhattan[2]["minutes"] > x:
         uptowntext += str(manhattan[2]["route"])
         uptowntext += "  "
         uptowntext += str(manhattan[2]["minutes"])
@@ -51,21 +51,21 @@ def Uptown():
         return "delayed"
     return uptowntext
 
-def Downtown():
+def Downtown(x):
     downtowntext = ""
     brooklyn = jsonDict["direction2"]["times"]
     print("brooklyn ", brooklyn)
-    if brooklyn[0]["minutes"] > 0:
+    if brooklyn[0]["minutes"] > x:
         downtowntext += str(brooklyn[0]["route"])
         downtowntext += "  "
         downtowntext += str(brooklyn[0]["minutes"])
         downtowntext += "min"
-    elif brooklyn[1]["minutes"] > 0:
+    elif brooklyn[1]["minutes"] > x:
         downtowntext += str(brooklyn[1]["route"])
         downtowntext += "  "
         downtowntext += str(brooklyn[1]["minutes"])
         downtowntext += "min"
-    elif brooklyn[2]["minutes"] > 0:
+    elif brooklyn[2]["minutes"] > x:
         downtowntext += str(brooklyn[2]["route"])
         downtowntext += "  "
         downtowntext += str(brooklyn[2]["minutes"])
@@ -77,22 +77,22 @@ def Downtown():
 def Uptown45():
     text = "↑ "
     Jsonify(fourfiveURL)
-    text += Uptown()
+    text += Uptown(0)
     return text
 def Downtown45():
     text = "↓ "
     Jsonify(fourfiveURL)
-    text += Downtown()
+    text += Downtown(0)
     return text
 def Uptown23():
     text = "↑ "
     Jsonify(twothreeURL)
-    text += Uptown()
+    text += Uptown(1)
     return text
 def Downtown23():
     text = "↓ "
     Jsonify(twothreeURL)
-    text += Downtown()
+    text += Downtown(1)
     return text
 subwaytimeslist = []
 def runall():
